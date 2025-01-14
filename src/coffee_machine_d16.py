@@ -1,3 +1,5 @@
+# pylint: disable=missing-module-docstring,invalid-name
+
 from turtle import Turtle, Screen
 timmy = Turtle()
 print(timmy)
