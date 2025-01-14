@@ -4,9 +4,11 @@ on:
   push:
     branches:
       - main
+      - test-branch   # Add test-branch here to trigger on pushes to this branch
   pull_request:
     branches:
       - main
+      - test-branch   # Also trigger on pull requests to the test-branch
 
 jobs:
   test:
