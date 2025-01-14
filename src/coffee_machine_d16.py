@@ -1,5 +1,4 @@
-import another_module
-print(another_module.another_variable)
+# pylint: disable=missing-module-docstring,invalid-name
 
 from turtle import Turtle, Screen
 timmy = Turtle()
