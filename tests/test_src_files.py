@@ -11,3 +11,33 @@ def test_coffee_maker_execution():
         import coffee_maker
     except Exception as e:
         assert False, f"Error in coffee_maker.py: {e}"
+
+def test_main_execution():
+    try:
+        # Add 'src' to the Python path to allow imports
+        sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../src')))
+        
+        # Try importing 'main' to see if there are any import errors
+        import main
+    except Exception as e:
+        assert False, f"Error in main.py: {e}"
+
+def test_menu_execution():
+    try:
+        # Add 'src' to the Python path to allow imports
+        sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../src')))
+        
+        # Try importing 'menu' to see if there are any import errors
+        import menu
+    except Exception as e:
+        assert False, f"Error in menu.py: {e}"
+
+def test_money_machine():
+    try:
+        # Add 'src' to the Python path to allow imports
+        sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../src')))
+        
+        # Try importing 'money_machine' to see if there are any import errors
+        import money_machine
+    except Exception as e:
+        assert False, f"Error in money_machine.py: {e}"
