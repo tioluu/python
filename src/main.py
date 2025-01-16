@@ -2,10 +2,8 @@ from menu import Menu, MenuItem
 from coffee_maker import CoffeeMaker
 from money_machine import MoneyMachine
 
-# Create instances of the imported classes
-menu = Menu()  # Handles menu-related functionality
-coffee_maker = CoffeeMaker()  # Manages the coffee machine's resources
-money_machine = MoneyMachine()  # Handles monetary transactions
+user_input = input("Good morning, what would you like? (espresso/latte/cappuccino): ")
+print(f"The user's input is {user_input}")
 
 def coffee_machine():
     is_on = True
