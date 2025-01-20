@@ -3,7 +3,7 @@ name: Python Application CI
 on:
   push:
     branches:
-      - test-branch
+      - test
   pull_request:
     branches:
       - main
