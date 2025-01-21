@@ -18,10 +18,11 @@ class MoneyMachine:
         print(f"Money: {self.CURRENCY}{self.profit}")
 
     def process_coins(self):
-        """Prompts the user to insert coins and calculates the total amount received."""
+        """Prompts the user to insert coins and
+          calculates the total amount received."""
         print("Please insert coins.")
         total = 0
-        for coin, value in self.COIN_VALUES.items():  # Use .items() to iterate over keys and values
+        for coin, value in self.COIN_VALUES.items():
             while True:
                 try:
                     coin_count = int(input(f"How many {coin}?: "))
@@ -33,6 +34,7 @@ class MoneyMachine:
                     print(f"Invalid input. Please enter a positive integer. Error: {e}")
         self.money_received = total
         return total
+
 
     def make_payment(self, cost):
         """Accepts payment if sufficient funds are received; returns True if successful."""

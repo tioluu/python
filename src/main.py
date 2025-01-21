@@ -5,6 +5,8 @@ from money_machine import MoneyMachine
 menu = Menu()
 coffee_maker = CoffeeMaker()
 money_machine = MoneyMachine()
+
+
 def coffee_machine():
     is_on = True
 
