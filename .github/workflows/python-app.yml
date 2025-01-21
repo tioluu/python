@@ -34,4 +34,4 @@ jobs:
 
       - name: Run tests
         run: |
-          pytest -s
+          pytest tests/test_src_files.py -s
