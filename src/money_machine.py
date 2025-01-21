@@ -43,8 +43,6 @@ class MoneyMachine:
             self.profit += cost
             self.money_received = 0  # Reset money_received after successful payment
             return True
-        
-        # No need for an "else" block here, as the "return" above will exit the function.
         print("Sorry that's not enough money. Money refunded.")
         self.money_received = 0  # Reset money_received after failure
         return False
