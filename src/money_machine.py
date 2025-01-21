@@ -1,39 +1,50 @@
 class MoneyMachine:
-
     CURRENCY = "$"
 
     COIN_VALUES = {
         "quarters": 0.25,
         "dimes": 0.10,
-        "nickles": 0.05,
+        "nickels": 0.05,  # Corrected typo 'nickles' to 'nickels'
         "pennies": 0.01
     }
 
     def __init__(self):
+        """Initialize the MoneyMachine with zero profit and money received."""
         self.profit = 0
         self.money_received = 0
 
     def report(self):
-        """Prints the current profit"""
+        """Print the current profit."""
         print(f"Money: {self.CURRENCY}{self.profit}")
 
     def process_coins(self):
-        """Returns the total calculated from coins inserted."""
+        """Prompts the user to insert coins and calculates the total amount received."""
         print("Please insert coins.")
-        for coin in self.COIN_VALUES:
-            self.money_received += int(input(f"How many {coin}?: ")) * self.COIN_VALUES[coin]
-        return self.money_received
+        total = 0
+        for coin, value in self.COIN_VALUES.items():  # Use .items() to iterate over keys and values
+            while True:
+                try:
+                    coin_count = int(input(f"How many {coin}?: "))
+                    if coin_count < 0:
+                        raise ValueError("The number of coins cannot be negative.")
+                    total += coin_count * value
+                    break  # Exit loop if input is valid
+                except ValueError as e:
+                    print(f"Invalid input. Please enter a positive integer. Error: {e}")
+        self.money_received = total
+        return total
 
     def make_payment(self, cost):
-        """Returns True when payment is accepted, or False if insufficient."""
-        self.process_coins()
+        """Accepts payment if sufficient funds are received; returns True if successful."""
+        self.money_received = self.process_coins()
         if self.money_received >= cost:
             change = round(self.money_received - cost, 2)
             print(f"Here is {self.CURRENCY}{change} in change.")
             self.profit += cost
-            self.money_received = 0
+            self.money_received = 0  # Reset money_received after successful payment
             return True
-        else:
-            print("Sorry that's not enough money. Money refunded.")
-            self.money_received = 0
-            return False
+        
+        # No need for an "else" block here, as the "return" above will exit the function.
+        print("Sorry that's not enough money. Money refunded.")
+        self.money_received = 0  # Reset money_received after failure
+        return False
