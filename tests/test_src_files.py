@@ -1,8 +1,17 @@
-from unittest.mock import patch
 import pytest
 import sys
 import os
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../src')))
+from unittest.mock import patch
+
+# Fixture to set up and clean up sys.path
+@pytest.fixture(scope="function", autouse=True)
+def add_src_to_path():
+    # Add 'src' to the Python path to allow imports from that directory
+    original_sys_path = sys.path[:]
+    sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../src')))
+    yield
+    # Clean up by restoring sys.path after the test
+    sys.path = original_sys_path
 
 def test_coffee_maker_execution():
     try:
