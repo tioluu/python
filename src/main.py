@@ -35,5 +35,6 @@ def coffee_machine():
             else:
                 print(f"'{choice}' is not a valid option. Please choose again.")
 
+
 # Run the coffee machine
 coffee_machine()

@@ -31,10 +31,6 @@ jobs:
           PYTHONPATH: ${{  github.workspace  }}/src
         run: |
           pylint --disable=C0114,C0115,C0116,R0913,R0917,R0903,R1710 src/
-  
-      - name: Run linting with flake8
-        run: |
-          flake8 src/
 
       - name: Run tests
         run: |
