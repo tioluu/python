@@ -1,20 +1,13 @@
-import pytest
+from unittest.mock import patch
 import sys
 import os
-from unittest.mock import patch
-
-# Fixture to set up and clean up sys.path
-@pytest.fixture(scope="function", autouse=True)
-def add_src_to_path():
-    # Add 'src' to the Python path to allow imports from that directory
-    original_sys_path = sys.path[:]
-    sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../src')))
-    yield
-    # Clean up by restoring sys.path after the test
-    sys.path = original_sys_path
+import importlib
 
 def test_coffee_maker_execution():
     try:
+        # Add 'src' to the Python path to allow imports
+        sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../src')))
+        
         # Try importing 'coffee_maker' to see if there are any import errors
         import coffee_maker
     except Exception as e:
@@ -25,6 +18,9 @@ def test_main_execution():
     inputs = ['espresso', 'off']  # Simulated user inputs
     with patch('builtins.input', side_effect=inputs):
         try:
+            # Add 'src' to the Python path to allow imports
+            sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../src')))
+            
             # Try importing 'main' to see if there are any import errors
             import main
         except Exception as e:
@@ -32,6 +28,9 @@ def test_main_execution():
 
 def test_menu_execution():
     try:
+        # Add 'src' to the Python path to allow imports
+        sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../src')))
+        
         # Try importing 'menu' to see if there are any import errors
         import menu
     except Exception as e:
@@ -39,6 +38,9 @@ def test_menu_execution():
 
 def test_money_machine():
     try:
+        # Add 'src' to the Python path to allow imports
+        sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../src')))
+        
         # Try importing 'money_machine' to see if there are any import errors
         import money_machine
     except Exception as e:
