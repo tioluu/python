@@ -2,12 +2,11 @@ from menu import Menu, MenuItem
 from coffee_maker import CoffeeMaker
 from money_machine import MoneyMachine
 
-user_input = input("Good morning, what would you like? (espresso/latte/cappuccino): ")
-print(f"The user's input is {user_input}")
-
 menu = Menu()
 coffee_maker = CoffeeMaker()
 money_machine = MoneyMachine()
+
+
 def coffee_machine():
     is_on = True
 
@@ -35,6 +34,7 @@ def coffee_machine():
                         coffee_maker.make_coffee(drink)
             else:
                 print(f"'{choice}' is not a valid option. Please choose again.")
+
 
 # Run the coffee machine
 coffee_machine()

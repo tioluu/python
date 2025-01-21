@@ -5,9 +5,6 @@ import importlib
 
 def test_coffee_maker_execution():
     try:
-        # Add 'src' to the Python path to allow imports
-        sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../src')))
-        
         # Try importing 'coffee_maker' to see if there are any import errors
         import coffee_maker
     except Exception as e:
@@ -15,12 +12,9 @@ def test_coffee_maker_execution():
 
 def test_main_execution():
     # Mock inputs for the program
-    inputs = ['espresso', 'off']  # Simulated user inputs
+    inputs = ['espresso', '2', '3', '1', '4', 'off']  # Simulated user inputs for coins and choice
     with patch('builtins.input', side_effect=inputs):
         try:
-            # Add 'src' to the Python path to allow imports
-            sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../src')))
-            
             # Try importing 'main' to see if there are any import errors
             import main
         except Exception as e:
@@ -28,9 +22,6 @@ def test_main_execution():
 
 def test_menu_execution():
     try:
-        # Add 'src' to the Python path to allow imports
-        sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../src')))
-        
         # Try importing 'menu' to see if there are any import errors
         import menu
     except Exception as e:
@@ -38,9 +29,6 @@ def test_menu_execution():
 
 def test_money_machine():
     try:
-        # Add 'src' to the Python path to allow imports
-        sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../src')))
-        
         # Try importing 'money_machine' to see if there are any import errors
         import money_machine
     except Exception as e:
