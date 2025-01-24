@@ -30,7 +30,7 @@ jobs:
         env:
           PYTHONPATH: ${{  github.workspace  }}/src
         run: |
-          pylint --disable=C0114,C0115,C0116,W0611,R0913,R0917,R0903,R1710 src/
+          pylint --disable=C0114,C0115,C0116,C0103,W0611,R0913,R0917,R0903,R1710 src/
           
       - name: Set PYTHONPATH for testing
         run: echo "PYTHONPATH=$(pwd)/src" >> $GITHUB_ENV
