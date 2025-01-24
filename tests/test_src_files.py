@@ -3,16 +3,16 @@ import sys
 import os
 import importlib
 
-def test_coffee_maker_execution():
+def test_data():
     try:
-        # Try importing 'coffee_maker' to see if there are any import errors
-        import coffee_maker
+        # Try importing 'data' to see if there are any import errors
+        import data
     except Exception as e:
-        assert False, f"Error in coffee_maker.py: {e}"
+        assert False, f"Error in data.py: {e}"
 
 def test_main_execution():
     # Mock inputs for the program
-    inputs = ['espresso', '2', '3', '1', '4', 'off']  # Simulated user inputs for coins and choice
+    inputs = ['espresso', '2', '3', '1', '4', 'off'] 
     with patch('builtins.input', side_effect=inputs):
         try:
             # Try importing 'main' to see if there are any import errors
@@ -20,16 +20,16 @@ def test_main_execution():
         except Exception as e:
             assert False, f"Error in main.py: {e}"
 
-def test_menu_execution():
+def test_question_model_execution():
     try:
-        # Try importing 'menu' to see if there are any import errors
-        import menu
+        # Try importing 'question_model' to see if there are any import errors
+        import question_model
     except Exception as e:
-        assert False, f"Error in menu.py: {e}"
+        assert False, f"Error in question_model.py: {e}"
 
-def test_money_machine():
+def test_quiz_brain_execution():
     try:
-        # Try importing 'money_machine' to see if there are any import errors
-        import money_machine
+        # Try importing 'quiz_brain' to see if there are any import errors
+        import quiz_brain
     except Exception as e:
-        assert False, f"Error in money_machine.py: {e}"
+        assert False, f"Error in quiz_brain.py: {e}"
