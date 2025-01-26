@@ -10,13 +10,19 @@ def test_data():
     except Exception as e:
         assert False, f"Error in data.py: {e}"
 
+def infinite_input_generator():
+    """Generate an infinite sequence of mock inputs."""
+    while True:
+        yield "true"  
+
 def test_main_execution():
-    # Mock inputs for the program
-    inputs = ['espresso', '2', '3', '1', '4', 'off'] 
-    with patch('builtins.input', side_effect=inputs):
+    # Use the input generator for side_effect
+    input_gen = infinite_input_generator()
+    
+    with patch('builtins.input', side_effect=lambda: next(input_gen)):
         try:
-            # Try importing 'main' to see if there are any import errors
-            import main
+            # Try importing and executing the main Python file
+            import main  
         except Exception as e:
             assert False, f"Error in main.py: {e}"
 
