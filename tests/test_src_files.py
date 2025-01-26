@@ -10,9 +10,6 @@ def test_data():
     except Exception as e:
         assert False, f"Error in data.py: {e}"
 
-from unittest.mock import patch
-import sys
-
 def test_main_execution():
     # Mock a single input
     inputs = ["true"]
