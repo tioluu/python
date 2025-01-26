@@ -10,7 +10,6 @@ for question in question_data:
     quention_bank.append(new_question)
 
 quiz = QuizBrain(quention_bank)
-quiz.next_question()
 
 while quiz.still_has_questions():
     quiz.next_question
