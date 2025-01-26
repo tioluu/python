@@ -12,20 +12,23 @@ def test_data():
 
 
 def infinite_input_generator():
+    """Generator for mock inputs."""
     while True:
-        yield "true"  # Provide the same input repeatedly
+        yield "true"  # Provide repeated mock input
 
 def test_main_execution():
-    # Use the generator for unlimited inputs
+    # Use the input generator
     input_gen = infinite_input_generator()
-    
-    with patch('builtins.input', side_effect=lambda: next(input_gen)), patch('sys.exit') as mock_exit:
+
+    # Mock input with a side effect that handles the prompt argument
+    with patch('builtins.input', side_effect=lambda _: next(input_gen)), patch('sys.exit') as mock_exit:
         try:
-            import main
+            import main  # Adjust if main has a specific entry point
         except SystemExit:
-            pass
+            pass  # Ignore SystemExit to prevent test failure
         except Exception as e:
             assert False, f"Error in main.py: {e}"
+
 
 def test_question_model_execution():
     try:
