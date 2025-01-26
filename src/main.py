@@ -12,4 +12,4 @@ for question in question_data:
 quiz = QuizBrain(quention_bank)
 
 while quiz.still_has_questions():
-    quiz.next_question
+    quiz.next_question()
