@@ -10,21 +10,26 @@ def test_data():
     except Exception as e:
         assert False, f"Error in data.py: {e}"
 
-def infinite_input_generator():
-    """Generate an infinite sequence of mock inputs."""
-    while True:
-        yield "true"  
+from unittest.mock import patch
+import sys
 
 def test_main_execution():
-    # Use the input generator for side_effect
-    input_gen = infinite_input_generator()
+    # Mock a single input
+    inputs = ["true"]
     
-    with patch('builtins.input', side_effect=lambda: next(input_gen)):
+    # Mock input and force the program to stop by raising SystemExit
+    with patch('builtins.input', side_effect=inputs), patch('sys.exit') as mock_exit:
         try:
             # Try importing and executing the main Python file
-            import main  
+            import main  # Adjust if the main function needs to be explicitly called
+        except SystemExit:
+            pass  # Ignore SystemExit to prevent the test from failing
         except Exception as e:
             assert False, f"Error in main.py: {e}"
+        
+        # Confirm that the code executed and stopped
+        mock_exit.assert_called_once()
+
 
 def test_question_model_execution():
     try:
