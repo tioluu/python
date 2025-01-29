@@ -2,7 +2,8 @@ name: Python Application CI
 
 on:
   push:
-      - main-d17
+    branches:
+      - main
   pull_request:
     branches:
       - main
@@ -27,7 +28,7 @@ jobs:
 
       - name: Run linting with pylint
         env:
-          PYTHONPATH: ${{  github.workspace  }}/src
+          PYTHONPATH: ${{ github.workspace }}/src
         run: |
           pylint --disable=C0114,C0115,C0116,C0103,W0611,R0913,R0917,R0903,W0104,R1710 src/
           
