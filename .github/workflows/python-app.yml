@@ -1,12 +1,11 @@
 name: Python Application CI
 
 on:
+  pull_request:
+    branches: [ "main" ]
   push:
     branches:
-      - main
-  pull_request:
-    branches:
-      - main
+      - test/**  
 
 jobs:
   test:
